@@ -4,7 +4,7 @@ Usando [Leaflet](https://leafletjs.com/) si crea una mappa collegata ad un  Goog
 
 Credit to 
 
-1. [Chris Arderne] (https://github.com/carderne/leaflet-gsheets)
+1. [Chris Arderne](https://github.com/carderne/leaflet-gsheets)
 
 2. Sidebar created using [leaflet-sidebar-v2](https://github.com/nickpeihl/leaflet-sidebar-v2)
 
