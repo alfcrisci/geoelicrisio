@@ -99,8 +99,33 @@ function addPoints(data) {
           "<strong>Longitudine</strong>:"+e.target.feature.properties.Lon + "<br>" +
           "<strong>Latitudine</strong>:"+e.target.feature.properties.Lat + "<br>" + 
           "<strong>Note</strong>:"+e.target.feature.properties.note + "<br>"+
-          "<strong>Campionatore</strong>:"+"Lorenzo Marini UNIFI";
+          "<strong>Campionatore</strong>:"+"Lorenzo Marini UNIFI"+ "<br>"+ 
+          "<strong>Foto</strong>:"+"<br>"+
+          "<img src='images/wikiElicriso.jpg'>"+ "<br>"+
+          "<div id='ciao'></div>";
+          var publicSpreadsheetUrl2 = 'https://docs.google.com/spreadsheets/d/1brJhYtDV36GqF-fX4erhDdj3sc6Xyo8nlucWRBy0lVU/edit?usp=sharing';
+          var i =2;// parseFloat(e.target.feature.properties.NrowDB);
 
+         function initplot() {
+                  Tabletop.init( { key: publicSpreadsheetUrl2,
+                     callback: getData,
+                     simpleSheet: true });
+                 };
+
+                 getData=(data, tableTop)=>{
+
+                  var datax=[parseFloat(data[2].c1),parseFloat(data[2].c2),parseFloat(data[2].c3),
+                             parseFloat(data[2].c4),parseFloat(data[2].c5),parseFloat(data[2].c1)];
+                  var plotlyData = [{
+                  r: datax,
+                  theta: ['A','B','C', 'D', 'E', 'A'],
+                  type: 'scatterpolar',
+                  fill: 'toself'
+                  }];
+
+                  Plotly.plot('ciao', plotlyData);
+                  }; 
+      initplot();   
       sidebar.open(panelID);
       }
     });
